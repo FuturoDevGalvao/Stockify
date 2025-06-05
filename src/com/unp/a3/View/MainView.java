@@ -4,17 +4,26 @@
  */
 package com.unp.a3.View;
 
+import com.unp.a3.Routing.ViewKey;
+import com.unp.a3.Routing.ViewManager;
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author ALUNO
  */
 public class MainView extends javax.swing.JFrame {
 
+    ViewManager viewManager;
     /**
      * Creates new form MainView
      */
     public MainView() {
         initComponents();
+        MainPainel.setLayout(new BorderLayout());
+        viewManager = ViewManager.getInstance(this);
+        viewManager.transition(ViewKey.HOME);
     }
 
     /**
@@ -26,21 +35,132 @@ public class MainView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        SideBarMenuPainel = new javax.swing.JPanel();
+        btnManagerProducts = new javax.swing.JButton();
+        productLabel = new javax.swing.JLabel();
+        btnSignupProduct = new javax.swing.JButton();
+        generalLabel = new javax.swing.JLabel();
+        btnRelatory = new javax.swing.JButton();
+        MainPainel = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1280, 720));
+
+        SideBarMenuPainel.setBackground(new java.awt.Color(102, 204, 0));
+
+        btnManagerProducts.setBackground(new java.awt.Color(102, 204, 0));
+        btnManagerProducts.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnManagerProducts.setForeground(new java.awt.Color(255, 255, 255));
+        btnManagerProducts.setText("Gerenciar produtos");
+        btnManagerProducts.setBorder(null);
+        btnManagerProducts.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnManagerProducts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManagerProductsActionPerformed(evt);
+            }
+        });
+
+        productLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        productLabel.setForeground(new java.awt.Color(255, 204, 0));
+        productLabel.setText("Produto");
+
+        btnSignupProduct.setBackground(new java.awt.Color(102, 204, 0));
+        btnSignupProduct.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnSignupProduct.setForeground(new java.awt.Color(255, 255, 255));
+        btnSignupProduct.setText("Cadastrar produto");
+        btnSignupProduct.setBorder(null);
+        btnSignupProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSignupProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignupProductActionPerformed(evt);
+            }
+        });
+
+        generalLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        generalLabel.setForeground(new java.awt.Color(255, 204, 0));
+        generalLabel.setText("Geral");
+
+        btnRelatory.setBackground(new java.awt.Color(102, 204, 0));
+        btnRelatory.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnRelatory.setForeground(new java.awt.Color(255, 255, 255));
+        btnRelatory.setText("Relatório");
+        btnRelatory.setBorder(null);
+        btnRelatory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout SideBarMenuPainelLayout = new javax.swing.GroupLayout(SideBarMenuPainel);
+        SideBarMenuPainel.setLayout(SideBarMenuPainelLayout);
+        SideBarMenuPainelLayout.setHorizontalGroup(
+            SideBarMenuPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnRelatory, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+            .addGroup(SideBarMenuPainelLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(SideBarMenuPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(generalLabel)
+                    .addComponent(productLabel))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(btnSignupProduct, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnManagerProducts, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        SideBarMenuPainelLayout.setVerticalGroup(
+            SideBarMenuPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SideBarMenuPainelLayout.createSequentialGroup()
+                .addGap(217, 217, 217)
+                .addComponent(productLabel)
+                .addGap(18, 18, 18)
+                .addComponent(btnSignupProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnManagerProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(generalLabel)
+                .addGap(18, 18, 18)
+                .addComponent(btnRelatory, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(266, Short.MAX_VALUE))
+        );
+
+        MainPainel.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout MainPainelLayout = new javax.swing.GroupLayout(MainPainel);
+        MainPainel.setLayout(MainPainelLayout);
+        MainPainelLayout.setHorizontalGroup(
+            MainPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 965, Short.MAX_VALUE)
+        );
+        MainPainelLayout.setVerticalGroup(
+            MainPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(SideBarMenuPainel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(MainPainel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(MainPainel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(SideBarMenuPainel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSignupProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupProductActionPerformed
+        // TODO add your handling code here:
+        viewManager.transition(ViewKey.SIGNUP);
+    }//GEN-LAST:event_btnSignupProductActionPerformed
+
+    private void btnManagerProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagerProductsActionPerformed
+        // TODO add your handling code here:
+        viewManager.transition(ViewKey.MANAGER);
+    }//GEN-LAST:event_btnManagerProductsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -77,6 +197,18 @@ public class MainView extends javax.swing.JFrame {
         });
     }
 
+    public JPanel getMainPainel() {
+        return MainPainel;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel MainPainel;
+    private javax.swing.JPanel SideBarMenuPainel;
+    private javax.swing.JButton btnManagerProducts;
+    private javax.swing.JButton btnRelatory;
+    private javax.swing.JButton btnSignupProduct;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel generalLabel;
+    private javax.swing.JLabel productLabel;
     // End of variables declaration//GEN-END:variables
 }
