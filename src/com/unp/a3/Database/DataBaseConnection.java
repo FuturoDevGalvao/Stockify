@@ -1,5 +1,7 @@
 package com.unp.a3.Database;
 
+import io.github.cdimascio.dotenv.Dotenv;
+
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Connection;
@@ -7,19 +9,25 @@ import java.sql.PreparedStatement;
 import java.sql.Statement;
 
 public class DataBaseConnection {
-    private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String USER = "galvao";
-    private static final String PASS = "galvao123";
-    private static final String HOST = "localhost";
-    private static final String PORT = "3306";
-    private static final String DB_NAME = "stockify";
-    private static final String URL = "jdbc:mysql://%s:%s/%s".formatted(HOST, PORT, DB_NAME);
+    private static String DRIVER = "com.mysql.cj.jdbc.Driver";
+    private static String USER;
+    private static String PASS;
+    private static String HOST;
+    private static String PORT;
+    private static String DB_NAME;
+    private static String URL;
     
     private static DataBaseConnection instance;
     private Connection connection;
     
     private DataBaseConnection() {
-        
+        Dotenv dotenv = Dotenv.load();
+        USER = dotenv.get("DB_USER");
+        PASS = dotenv.get("DB_PASS");
+        HOST = dotenv.get("DB_HOST");
+        PORT = dotenv.get("DB_PORT");
+        DB_NAME = dotenv.get("DB_NAME");
+        URL = dotenv.get("DB_URL");       
     }
     
     public static DataBaseConnection getConnection() {
@@ -33,6 +41,7 @@ public class DataBaseConnection {
     public void openConnection() throws SQLException {
         try {
             Class.forName(DRIVER);
+            System.out.println(URL);
             this.connection = DriverManager.getConnection(URL, USER, PASS);
             System.out.println("Conexão com %s aberta".formatted(URL));
         } catch (ClassNotFoundException ex) {
