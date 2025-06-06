@@ -7,6 +7,8 @@ package com.unp.a3.View;
 import com.unp.a3.Routing.ViewKey;
 import com.unp.a3.Routing.ViewManager;
 import java.awt.BorderLayout;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -36,89 +38,218 @@ public class MainView extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        SideBarMenuPainel = new javax.swing.JPanel();
+        sideBarMenuPainel = new javax.swing.JPanel();
         btnManagerProducts = new javax.swing.JButton();
         productLabel = new javax.swing.JLabel();
         btnSignupProduct = new javax.swing.JButton();
         generalLabel = new javax.swing.JLabel();
         btnRelatory = new javax.swing.JButton();
+        btnRegisterInput = new javax.swing.JButton();
+        btnRegisterOutput = new javax.swing.JButton();
+        employeeLabel = new javax.swing.JLabel();
+        btnSignupEmployee = new javax.swing.JButton();
+        btnManagerEmployee = new javax.swing.JButton();
+        logoLabel = new javax.swing.JLabel();
         MainPainel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1280, 720));
+        setTitle("Stockify");
 
-        SideBarMenuPainel.setBackground(new java.awt.Color(102, 204, 0));
+        sideBarMenuPainel.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnManagerProducts.setBackground(new java.awt.Color(102, 204, 0));
-        btnManagerProducts.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnManagerProducts.setForeground(new java.awt.Color(255, 255, 255));
-        btnManagerProducts.setText("Gerenciar produtos");
+        btnManagerProducts.setForeground(new java.awt.Color(43, 47, 52));
+        btnManagerProducts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8687603_ic_fluent_pivot_regular_icon.png"))); // NOI18N
+        btnManagerProducts.setText("Gerenciar");
         btnManagerProducts.setBorder(null);
         btnManagerProducts.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnManagerProducts.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnManagerProductsMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnManagerProductsMouseExited(evt);
+            }
+        });
         btnManagerProducts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManagerProductsActionPerformed(evt);
             }
         });
 
-        productLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        productLabel.setForeground(new java.awt.Color(255, 204, 0));
-        productLabel.setText("Produto");
+        productLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        productLabel.setForeground(new java.awt.Color(25, 25, 25));
+        productLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8686855_ic_fluent_box_regular_icon (1).png"))); // NOI18N
+        productLabel.setText("Produtos");
 
-        btnSignupProduct.setBackground(new java.awt.Color(102, 204, 0));
-        btnSignupProduct.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnSignupProduct.setForeground(new java.awt.Color(255, 255, 255));
-        btnSignupProduct.setText("Cadastrar produto");
+        btnSignupProduct.setForeground(new java.awt.Color(43, 47, 52));
+        btnSignupProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8686707_ic_fluent_add_circle_regular_icon.png"))); // NOI18N
+        btnSignupProduct.setText("Cadastrar");
         btnSignupProduct.setBorder(null);
         btnSignupProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSignupProduct.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSignupProductMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSignupProductMouseExited(evt);
+            }
+        });
         btnSignupProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSignupProductActionPerformed(evt);
             }
         });
 
-        generalLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        generalLabel.setForeground(new java.awt.Color(255, 204, 0));
-        generalLabel.setText("Geral");
+        generalLabel.setBackground(new java.awt.Color(255, 255, 255));
+        generalLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        generalLabel.setForeground(new java.awt.Color(25, 25, 25));
+        generalLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8686724_ic_fluent_apps_add_in_icon.png"))); // NOI18N
+        generalLabel.setText("Recursos");
 
-        btnRelatory.setBackground(new java.awt.Color(102, 204, 0));
-        btnRelatory.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnRelatory.setForeground(new java.awt.Color(255, 255, 255));
+        btnRelatory.setForeground(new java.awt.Color(25, 25, 25));
+        btnRelatory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8687746_ic_fluent_print_regular_icon.png"))); // NOI18N
         btnRelatory.setText("Relatório");
         btnRelatory.setBorder(null);
         btnRelatory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRelatory.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRelatoryMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRelatoryMouseExited(evt);
+            }
+        });
 
-        javax.swing.GroupLayout SideBarMenuPainelLayout = new javax.swing.GroupLayout(SideBarMenuPainel);
-        SideBarMenuPainel.setLayout(SideBarMenuPainelLayout);
-        SideBarMenuPainelLayout.setHorizontalGroup(
-            SideBarMenuPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnRelatory, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
-            .addGroup(SideBarMenuPainelLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(SideBarMenuPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(generalLabel)
-                    .addComponent(productLabel))
+        btnRegisterInput.setForeground(new java.awt.Color(43, 47, 52));
+        btnRegisterInput.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8686648_ic_fluent_arrow_circle_down_icon.png"))); // NOI18N
+        btnRegisterInput.setText("Registrar entrada");
+        btnRegisterInput.setBorder(null);
+        btnRegisterInput.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegisterInput.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegisterInputMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegisterInputMouseExited(evt);
+            }
+        });
+
+        btnRegisterOutput.setForeground(new java.awt.Color(43, 47, 52));
+        btnRegisterOutput.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8686648_ic_fluent_arrow_circle_down_icon_-_Copia-removebg-preview.png"))); // NOI18N
+        btnRegisterOutput.setText("Registrar saída ");
+        btnRegisterOutput.setBorder(null);
+        btnRegisterOutput.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegisterOutput.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegisterOutputMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegisterOutputMouseExited(evt);
+            }
+        });
+
+        employeeLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        employeeLabel.setForeground(new java.awt.Color(25, 25, 25));
+        employeeLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8687669_ic_fluent_people_community_regular_icon.png"))); // NOI18N
+        employeeLabel.setText("Funcionários");
+
+        btnSignupEmployee.setForeground(new java.awt.Color(43, 47, 52));
+        btnSignupEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8686707_ic_fluent_add_circle_regular_icon.png"))); // NOI18N
+        btnSignupEmployee.setText("Cadastrar");
+        btnSignupEmployee.setBorder(null);
+        btnSignupEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSignupEmployee.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSignupEmployeeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSignupEmployeeMouseExited(evt);
+            }
+        });
+        btnSignupEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignupEmployeeActionPerformed(evt);
+            }
+        });
+
+        btnManagerEmployee.setForeground(new java.awt.Color(43, 47, 52));
+        btnManagerEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8687603_ic_fluent_pivot_regular_icon.png"))); // NOI18N
+        btnManagerEmployee.setText("Gerenciar");
+        btnManagerEmployee.setBorder(null);
+        btnManagerEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnManagerEmployee.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnManagerEmployeeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnManagerEmployeeMouseExited(evt);
+            }
+        });
+        btnManagerEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManagerEmployeeActionPerformed(evt);
+            }
+        });
+
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/1.jpg"))); // NOI18N
+
+        javax.swing.GroupLayout sideBarMenuPainelLayout = new javax.swing.GroupLayout(sideBarMenuPainel);
+        sideBarMenuPainel.setLayout(sideBarMenuPainelLayout);
+        sideBarMenuPainelLayout.setHorizontalGroup(
+            sideBarMenuPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sideBarMenuPainelLayout.createSequentialGroup()
+                .addComponent(logoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 22, Short.MAX_VALUE))
+            .addGroup(sideBarMenuPainelLayout.createSequentialGroup()
+                .addGroup(sideBarMenuPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(sideBarMenuPainelLayout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addGroup(sideBarMenuPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnRegisterOutput)
+                            .addComponent(btnRegisterInput)
+                            .addComponent(btnSignupEmployee)
+                            .addComponent(btnManagerProducts)
+                            .addComponent(btnSignupProduct)
+                            .addGroup(sideBarMenuPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnRelatory, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnManagerEmployee, javax.swing.GroupLayout.Alignment.LEADING))))
+                    .addGroup(sideBarMenuPainelLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(sideBarMenuPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(employeeLabel)
+                            .addComponent(productLabel)
+                            .addComponent(generalLabel))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(btnSignupProduct, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnManagerProducts, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        SideBarMenuPainelLayout.setVerticalGroup(
-            SideBarMenuPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SideBarMenuPainelLayout.createSequentialGroup()
-                .addGap(217, 217, 217)
+        sideBarMenuPainelLayout.setVerticalGroup(
+            sideBarMenuPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sideBarMenuPainelLayout.createSequentialGroup()
+                .addComponent(logoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
                 .addComponent(productLabel)
                 .addGap(18, 18, 18)
-                .addComponent(btnSignupProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSignupProduct)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnManagerProducts)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRegisterInput)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRegisterOutput)
                 .addGap(18, 18, 18)
-                .addComponent(btnManagerProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(employeeLabel)
+                .addGap(18, 18, 18)
+                .addComponent(btnSignupEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnManagerEmployee)
                 .addGap(18, 18, 18)
                 .addComponent(generalLabel)
-                .addGap(18, 18, 18)
-                .addComponent(btnRelatory, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(266, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRelatory)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        MainPainel.setBackground(new java.awt.Color(255, 255, 255));
+        MainPainel.setBackground(new java.awt.Color(240, 241, 245));
+        MainPainel.setPreferredSize(new java.awt.Dimension(965, 620));
 
         javax.swing.GroupLayout MainPainelLayout = new javax.swing.GroupLayout(MainPainel);
         MainPainel.setLayout(MainPainelLayout);
@@ -128,7 +259,7 @@ public class MainView extends javax.swing.JFrame {
         );
         MainPainelLayout.setVerticalGroup(
             MainPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 620, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -136,17 +267,15 @@ public class MainView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(SideBarMenuPainel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MainPainel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(sideBarMenuPainel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(MainPainel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(MainPainel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(SideBarMenuPainel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(sideBarMenuPainel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(MainPainel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -154,14 +283,101 @@ public class MainView extends javax.swing.JFrame {
 
     private void btnSignupProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupProductActionPerformed
         // TODO add your handling code here:
-        viewManager.transition(ViewKey.SIGNUP);
+        viewManager.transition(ViewKey.SIGNUP_PRODUCT);
     }//GEN-LAST:event_btnSignupProductActionPerformed
 
     private void btnManagerProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagerProductsActionPerformed
         // TODO add your handling code here:
-        viewManager.transition(ViewKey.MANAGER);
+        viewManager.transition(ViewKey.MANAGER_PRODUCTS);
     }//GEN-LAST:event_btnManagerProductsActionPerformed
 
+    private void btnSignupEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupEmployeeActionPerformed
+        // TODO add your handling code here:
+        viewManager.transition(ViewKey.SIGNUP_EMPLOYEE);
+    }//GEN-LAST:event_btnSignupEmployeeActionPerformed
+
+    private void btnManagerEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagerEmployeeActionPerformed
+        // TODO add your handling code here:
+        viewManager.transition(ViewKey.MANAGER_EMPLOYEE);
+    }//GEN-LAST:event_btnManagerEmployeeActionPerformed
+
+    private void btnSignupProductMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignupProductMouseEntered
+        // TODO add your handling code here:
+        btnSignupProduct.setForeground(AppColorsSchema.THEME);
+    }//GEN-LAST:event_btnSignupProductMouseEntered
+
+    private void btnSignupProductMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignupProductMouseExited
+        // TODO add your handling code here:
+        btnSignupProduct.setForeground(AppColorsSchema.SECONDARY_FOREGROUND);
+    }//GEN-LAST:event_btnSignupProductMouseExited
+
+    private void btnManagerProductsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManagerProductsMouseEntered
+        // TODO add your handling code here:
+        btnManagerProducts.setForeground(AppColorsSchema.THEME);
+
+    }//GEN-LAST:event_btnManagerProductsMouseEntered
+
+    private void btnManagerProductsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManagerProductsMouseExited
+        // TODO add your handling code here:
+        btnManagerProducts.setForeground(AppColorsSchema.SECONDARY_FOREGROUND);
+    }//GEN-LAST:event_btnManagerProductsMouseExited
+
+    private void btnRegisterInputMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterInputMouseEntered
+        // TODO add your handling code here:
+        btnRegisterInput.setForeground(AppColorsSchema.THEME);
+    }//GEN-LAST:event_btnRegisterInputMouseEntered
+
+    private void btnRegisterInputMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterInputMouseExited
+        // TODO add your handling code here:
+        btnRegisterInput.setForeground(AppColorsSchema.SECONDARY_FOREGROUND);
+    }//GEN-LAST:event_btnRegisterInputMouseExited
+
+    private void btnRegisterOutputMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterOutputMouseEntered
+        // TODO add your handling code here:
+        btnRegisterOutput.setForeground(AppColorsSchema.THEME);
+    }//GEN-LAST:event_btnRegisterOutputMouseEntered
+
+    private void btnRegisterOutputMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterOutputMouseExited
+        // TODO add your handling code here:
+        btnRegisterOutput.setForeground(AppColorsSchema.SECONDARY_FOREGROUND);
+    }//GEN-LAST:event_btnRegisterOutputMouseExited
+
+    private void btnSignupEmployeeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignupEmployeeMouseEntered
+        // TODO add your handling code here:
+        btnSignupEmployee.setForeground(AppColorsSchema.THEME);
+    }//GEN-LAST:event_btnSignupEmployeeMouseEntered
+
+    private void btnSignupEmployeeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignupEmployeeMouseExited
+        // TODO add your handling code here:
+        btnSignupEmployee.setForeground(AppColorsSchema.SECONDARY_FOREGROUND);
+    }//GEN-LAST:event_btnSignupEmployeeMouseExited
+
+    private void btnManagerEmployeeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManagerEmployeeMouseEntered
+        // TODO add your handling code here:
+        btnManagerEmployee.setForeground(AppColorsSchema.THEME);
+    }//GEN-LAST:event_btnManagerEmployeeMouseEntered
+
+    private void btnManagerEmployeeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManagerEmployeeMouseExited
+        // TODO add your handling code here:
+        btnManagerEmployee.setForeground(AppColorsSchema.SECONDARY_FOREGROUND);
+    }//GEN-LAST:event_btnManagerEmployeeMouseExited
+
+    private void btnRelatoryMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRelatoryMouseEntered
+        // TODO add your handling code here:
+        btnRelatory.setForeground(AppColorsSchema.THEME);
+    }//GEN-LAST:event_btnRelatoryMouseEntered
+
+    private void btnRelatoryMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRelatoryMouseExited
+        // TODO add your handling code here:
+        btnRelatory.setForeground(AppColorsSchema.SECONDARY_FOREGROUND);
+    }//GEN-LAST:event_btnRelatoryMouseExited
+    
+    private void setColorApp() {
+        this.setBackground(AppColorsSchema.BACKGROUND);
+        sideBarMenuPainel.setBackground(AppColorsSchema.THEME);
+        productLabel.setForeground(AppColorsSchema.PRIMARY_FOREGROUND);
+        employeeLabel.setForeground(AppColorsSchema.PRIMARY_FOREGROUND);
+    }
     /**
      * @param args the command line arguments
      */
@@ -173,7 +389,7 @@ public class MainView extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -203,12 +419,18 @@ public class MainView extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel MainPainel;
-    private javax.swing.JPanel SideBarMenuPainel;
+    private javax.swing.JButton btnManagerEmployee;
     private javax.swing.JButton btnManagerProducts;
+    private javax.swing.JButton btnRegisterInput;
+    private javax.swing.JButton btnRegisterOutput;
     private javax.swing.JButton btnRelatory;
+    private javax.swing.JButton btnSignupEmployee;
     private javax.swing.JButton btnSignupProduct;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel employeeLabel;
     private javax.swing.JLabel generalLabel;
+    private javax.swing.JLabel logoLabel;
     private javax.swing.JLabel productLabel;
+    private javax.swing.JPanel sideBarMenuPainel;
     // End of variables declaration//GEN-END:variables
 }

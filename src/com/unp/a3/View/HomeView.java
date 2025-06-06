@@ -45,7 +45,7 @@ public class HomeView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addContainerGap(692, Short.MAX_VALUE))
+                .addContainerGap(571, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
