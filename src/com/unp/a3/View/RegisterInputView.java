@@ -6,14 +6,14 @@ package com.unp.a3.View;
 
 /**
  *
- * @author Usuario
+ * @author 12825139786
  */
-public class HomeView extends javax.swing.JPanel {
+public class RegisterInputView extends javax.swing.JPanel {
 
     /**
-     * Creates new form Home
+     * Creates new form RegisterInputView
      */
-    public HomeView() {
+    public RegisterInputView() {
         initComponents();
     }
 
@@ -29,7 +29,7 @@ public class HomeView extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(102, 255, 255));
+        setPreferredSize(new java.awt.Dimension(965, 619));
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jLabel1.setText("Home");
@@ -41,7 +41,7 @@ public class HomeView extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel1)
-                .addContainerGap(932, Short.MAX_VALUE))
+                .addContainerGap(869, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

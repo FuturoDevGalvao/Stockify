@@ -47,9 +47,17 @@ public class ManagerProductView extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "id", "nome", "preço", "quantidade"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N

@@ -61,7 +61,7 @@ public class MainView extends javax.swing.JFrame {
         btnManagerProducts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8687603_ic_fluent_pivot_regular_icon.png"))); // NOI18N
         btnManagerProducts.setText("Gerenciar");
         btnManagerProducts.setBorder(null);
-        btnManagerProducts.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnManagerProducts.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnManagerProducts.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnManagerProductsMouseEntered(evt);
@@ -85,7 +85,7 @@ public class MainView extends javax.swing.JFrame {
         btnSignupProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8686707_ic_fluent_add_circle_regular_icon.png"))); // NOI18N
         btnSignupProduct.setText("Cadastrar");
         btnSignupProduct.setBorder(null);
-        btnSignupProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSignupProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnSignupProduct.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnSignupProductMouseEntered(evt);
@@ -110,7 +110,7 @@ public class MainView extends javax.swing.JFrame {
         btnRelatory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8687746_ic_fluent_print_regular_icon.png"))); // NOI18N
         btnRelatory.setText("Relatório");
         btnRelatory.setBorder(null);
-        btnRelatory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRelatory.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnRelatory.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnRelatoryMouseEntered(evt);
@@ -124,7 +124,7 @@ public class MainView extends javax.swing.JFrame {
         btnRegisterInput.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8686648_ic_fluent_arrow_circle_down_icon.png"))); // NOI18N
         btnRegisterInput.setText("Registrar entrada");
         btnRegisterInput.setBorder(null);
-        btnRegisterInput.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegisterInput.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnRegisterInput.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnRegisterInputMouseEntered(evt);
@@ -138,7 +138,7 @@ public class MainView extends javax.swing.JFrame {
         btnRegisterOutput.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8686648_ic_fluent_arrow_circle_down_icon_-_Copia-removebg-preview.png"))); // NOI18N
         btnRegisterOutput.setText("Registrar saída ");
         btnRegisterOutput.setBorder(null);
-        btnRegisterOutput.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegisterOutput.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnRegisterOutput.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnRegisterOutputMouseEntered(evt);
@@ -157,7 +157,7 @@ public class MainView extends javax.swing.JFrame {
         btnSignupEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8686707_ic_fluent_add_circle_regular_icon.png"))); // NOI18N
         btnSignupEmployee.setText("Cadastrar");
         btnSignupEmployee.setBorder(null);
-        btnSignupEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSignupEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnSignupEmployee.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnSignupEmployeeMouseEntered(evt);
@@ -176,7 +176,7 @@ public class MainView extends javax.swing.JFrame {
         btnManagerEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8687603_ic_fluent_pivot_regular_icon.png"))); // NOI18N
         btnManagerEmployee.setText("Gerenciar");
         btnManagerEmployee.setBorder(null);
-        btnManagerEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnManagerEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnManagerEmployee.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnManagerEmployeeMouseEntered(evt);
@@ -205,20 +205,19 @@ public class MainView extends javax.swing.JFrame {
                     .addGroup(sideBarMenuPainelLayout.createSequentialGroup()
                         .addGap(59, 59, 59)
                         .addGroup(sideBarMenuPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnRelatory, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnManagerEmployee)
+                            .addComponent(btnSignupEmployee)
                             .addComponent(btnRegisterOutput)
                             .addComponent(btnRegisterInput)
-                            .addComponent(btnSignupEmployee)
                             .addComponent(btnManagerProducts)
-                            .addComponent(btnSignupProduct)
-                            .addGroup(sideBarMenuPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnRelatory, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnManagerEmployee, javax.swing.GroupLayout.Alignment.LEADING))))
+                            .addComponent(btnSignupProduct)))
                     .addGroup(sideBarMenuPainelLayout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addGroup(sideBarMenuPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(generalLabel)
                             .addComponent(employeeLabel)
-                            .addComponent(productLabel)
-                            .addComponent(generalLabel))))
+                            .addComponent(productLabel))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         sideBarMenuPainelLayout.setVerticalGroup(

@@ -63,23 +63,21 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnRegisterOutput" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnRegisterInput" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnRelatory" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="btnManagerEmployee" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="btnSignupEmployee" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnRegisterOutput" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnRegisterInput" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="btnManagerProducts" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="btnSignupProduct" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Component id="btnRelatory" alignment="1" min="-2" pref="71" max="-2" attributes="0"/>
-                                  <Component id="btnManagerEmployee" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="employeeLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="productLabel" min="-2" max="-2" attributes="0"/>
                               <Component id="generalLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="employeeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="productLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -130,7 +128,7 @@
               <Border info="null"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Cursor em Forma de M&#xe3;o"/>
+              <Color id="Default Cursor"/>
             </Property>
           </Properties>
           <Events>
@@ -166,7 +164,7 @@
               <Border info="null"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Cursor em Forma de M&#xe3;o"/>
+              <Color id="Default Cursor"/>
             </Property>
           </Properties>
           <Events>
@@ -205,7 +203,7 @@
               <Border info="null"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Cursor em Forma de M&#xe3;o"/>
+              <Color id="Default Cursor"/>
             </Property>
           </Properties>
           <Events>
@@ -226,7 +224,7 @@
               <Border info="null"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Cursor em Forma de M&#xe3;o"/>
+              <Color id="Default Cursor"/>
             </Property>
           </Properties>
           <Events>
@@ -247,7 +245,7 @@
               <Border info="null"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Cursor em Forma de M&#xe3;o"/>
+              <Color id="Default Cursor"/>
             </Property>
           </Properties>
           <Events>
@@ -282,7 +280,7 @@
               <Border info="null"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Cursor em Forma de M&#xe3;o"/>
+              <Color id="Default Cursor"/>
             </Property>
           </Properties>
           <Events>
@@ -304,7 +302,7 @@
               <Border info="null"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Cursor em Forma de M&#xe3;o"/>
+              <Color id="Default Cursor"/>
             </Property>
           </Properties>
           <Events>

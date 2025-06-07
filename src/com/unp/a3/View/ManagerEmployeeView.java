@@ -4,12 +4,15 @@
  */
 package com.unp.a3.View;
 
+import com.unp.a3.Model.EmployeeModel;
+
 /**
  *
  * @author Usuario
  */
 public class ManagerEmployeeView extends javax.swing.JPanel {
 
+    private EmployeeModel employeeForManagement;
     /**
      * Creates new form ManagerEmployeeView
      */
@@ -29,7 +32,7 @@ public class ManagerEmployeeView extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        employeesTable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -43,23 +46,45 @@ public class ManagerEmployeeView extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Selecione na tabela para editar ou excluir um funcionário");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        employeesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                { new Integer(1), "a", "b", "c", "d"}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Id", "Nome", "Cargo", "Login", "Senha"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        employeesTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                employeesTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(employeesTable);
 
         jButton1.setBackground(new java.awt.Color(102, 204, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Editar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(255, 0, 51));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -102,13 +127,37 @@ public class ManagerEmployeeView extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void employeesTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeesTableMouseClicked
+         int linhaSelecionada = employeesTable.rowAtPoint(evt.getPoint());
+         int totalColunas = employeesTable.getColumnCount();
+         Object[] dadosLinha = new Object[totalColunas];
+         
+         if (linhaSelecionada != -1) {
+             for (int i = 0; i < totalColunas; i++) {
+                 dadosLinha[i] = employeesTable.getValueAt(linhaSelecionada, i);
+             }
+             
+             employeeForManagement = new EmployeeModel(
+                     (String) dadosLinha[1],
+                     (String) dadosLinha[2],
+                     (String) dadosLinha[3], 
+                     (String) dadosLinha[4]
+             );
+         }
+    }//GEN-LAST:event_employeesTableMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        new RegisterInputView().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable employeesTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
