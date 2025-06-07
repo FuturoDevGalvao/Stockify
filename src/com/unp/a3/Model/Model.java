@@ -22,37 +22,36 @@ public abstract class Model {
         ArrayList<Model> list = new ArrayList<>();
         String query = "SELECT * FROM " + getTableName();
 
-        try (Connection conn = (Connection) connection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query);
-             ResultSet rs = stmt.executeQuery()) {
+        try {
+            this.connection.openConnection();
+            Statement createStatement = connection.createStatement();
+            ResultSet rs = createStatement.executeQuery(query);
 
-            while (rs.next()) {
-                list.add(mapRow(rs));
-            }
-
+            while (rs.next()) list.add(mapRow(rs));
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            connection.closeConnection();
         }
 
         return list;
     }
 
     public Model find(int id) {
-        String query = "SELECT * FROM " + getTableName() + " WHERE id = ?";
+        String query = "SELECT * FROM %s WHERE id = ?".formatted(getTableName());
 
         
-        try (Connection conn = (Connection) connection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
+        try {
+            connection.openConnection();
+            PreparedStatement prepareStatement = connection.prepareStatement(query);
+            prepareStatement.setInt(1, id);
+            ResultSet rs = prepareStatement.executeQuery();
 
-            stmt.setInt(1, id);
-            ResultSet rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                return mapRow(rs);
-            }
-
+            if (rs.next()) return mapRow(rs);
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            connection.closeConnection();
         }
 
         return null;
