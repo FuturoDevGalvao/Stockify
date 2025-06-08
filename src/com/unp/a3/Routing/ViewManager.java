@@ -4,6 +4,8 @@ import com.unp.a3.View.HomeView;
 import com.unp.a3.View.MainView;
 import com.unp.a3.View.ManagerEmployeeView;
 import com.unp.a3.View.ManagerProductView;
+import com.unp.a3.View.RegisterInputView;
+import com.unp.a3.View.RegisterOutputView;
 import com.unp.a3.View.SignupEmployeeView;
 import com.unp.a3.View.SignupProductView;
 
@@ -26,6 +28,8 @@ public class ViewManager {
         views.put(ViewKey.HOME, new HomeView()); // painel já criado no designer
         views.put(ViewKey.SIGNUP_PRODUCT, new SignupProductView());
         views.put(ViewKey.MANAGER_PRODUCTS, new ManagerProductView());  
+        views.put(ViewKey.REGISTER_INPUT_PRODUCT, new RegisterInputView());  
+        views.put(ViewKey.REGISTER_OUTPUT_PRODUCT, new RegisterOutputView());  
         views.put(ViewKey.SIGNUP_EMPLOYEE, new SignupEmployeeView());
         views.put(ViewKey.MANAGER_EMPLOYEE, new ManagerEmployeeView());
     }
