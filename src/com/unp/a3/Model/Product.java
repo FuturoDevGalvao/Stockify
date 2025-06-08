@@ -1,5 +1,6 @@
 package com.unp.a3.Model;
 
+import com.unp.a3.Model.interfaces.Persistable;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
