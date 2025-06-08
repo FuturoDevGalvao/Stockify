@@ -1,4 +1,4 @@
-package com.unp.a3.Model;
+package com.unp.a3.Model.enums;
 
 public enum EmployeePosition {
     ADMINISTRATOR("Administrador"),

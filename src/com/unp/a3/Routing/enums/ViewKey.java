@@ -1,4 +1,4 @@
-package com.unp.a3.Routing;
+package com.unp.a3.Routing.enums;
 
 public enum ViewKey {
     MAIN,
