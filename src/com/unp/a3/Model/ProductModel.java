@@ -55,10 +55,10 @@ public class ProductModel extends Model implements Persistable {
             connection.openConnection();
             
             PreparedStatement prepareStatement = connection.prepareStatement(query);
-            prepareStatement.setString(1, this.getName());
-            prepareStatement.setString(2, this.getCategory());
-            prepareStatement.setDouble(3, this.getPrice());
-            prepareStatement.setInt(4, this.getQuantity());
+            prepareStatement.setString(1, this.name);
+            prepareStatement.setString(2, this.category);
+            prepareStatement.setDouble(3, this.price);
+            prepareStatement.setInt(4, this.quantity);
             
             int rowsAffected = prepareStatement.executeUpdate(); 
 
@@ -80,11 +80,11 @@ public class ProductModel extends Model implements Persistable {
             connection.openConnection();
             
             PreparedStatement prepareStatement = connection.prepareStatement(query);
-            prepareStatement.setString(1, this.getName());
-            prepareStatement.setString(2, this.getCategory());
-            prepareStatement.setDouble(3, this.getPrice());
-            prepareStatement.setInt(4, this.getQuantity());
-            prepareStatement.setInt(5, this.getId());
+            prepareStatement.setString(1, this.name);
+            prepareStatement.setString(2, this.category);
+            prepareStatement.setDouble(3, this.price);
+            prepareStatement.setInt(4, this.quantity);
+            prepareStatement.setInt(5, this.id);
             
             int rowsAffected = prepareStatement.executeUpdate(); 
 
@@ -106,7 +106,7 @@ public class ProductModel extends Model implements Persistable {
             connection.openConnection();
             
             PreparedStatement prepareStatement = connection.prepareStatement(query);
-            prepareStatement.setInt(1, this.getId());
+            prepareStatement.setInt(1, this.id);
             
             int rowsAffected = prepareStatement.executeUpdate(); 
 
@@ -119,10 +119,14 @@ public class ProductModel extends Model implements Persistable {
 
         return false;        
     }
-
+    
     @Override
     public String toString() {
         return "ProductModel{" + "table=" + table + ", id=" + id + ", name=" + name + ", category=" + category + ", price=" + price + ", quantity=" + quantity + '}';
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
     
     public String getTable() {
