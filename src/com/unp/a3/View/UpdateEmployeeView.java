@@ -1,35 +1,27 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.unp.a3.View;
 
-import com.unp.a3.Model.ProductCategory;
+import com.unp.a3.Model.EmployeeModel;
+import com.unp.a3.Model.EmployeePosition;
 import com.unp.a3.Model.ProductModel;
 
-/**
- *
- * @author 12825139786
- */
-public class UpdateProductView extends javax.swing.JFrame {
+public class UpdateEmployeeView extends javax.swing.JFrame {
 
-    private ProductModel productForUpdate;
+    private EmployeeModel employeeForUpdate;
     
     {
         initComponents();
         setLocationRelativeTo(null);
     }
-    
     /**
      * Creates new form UpdateProductView
      */
-    public UpdateProductView(ProductModel productForUpdate) {
-        this.productForUpdate = productForUpdate;
+    public UpdateEmployeeView(EmployeeModel employeeForUpdate) {
+        this.employeeForUpdate = employeeForUpdate;
         setEmployeeDataInFields();
-        initCategoryComboBox();
+        initPositionComboBox();
     }
 
-    public UpdateProductView() {
+    public UpdateEmployeeView() {
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,31 +35,31 @@ public class UpdateProductView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        priceField = new javax.swing.JTextField();
+        loginField = new javax.swing.JTextField();
         nameField = new javax.swing.JTextField();
-        categoryComboBox = new javax.swing.JComboBox<>();
+        positionComboBox = new javax.swing.JComboBox<>();
         btnUpdate = new javax.swing.JButton();
-        quantityField = new javax.swing.JTextField();
+        passwordField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Stockify");
         setBackground(new java.awt.Color(51, 153, 255));
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel1.setText("Atualizar Produto");
+        jLabel1.setText("Atualizar Funcionário");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Formulário", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 1, 14))); // NOI18N
 
-        priceField.setBackground(new java.awt.Color(242, 242, 242));
-        priceField.setToolTipText("Informe o login do novo funcionário");
-        priceField.setBorder(javax.swing.BorderFactory.createTitledBorder("Preço"));
+        loginField.setBackground(new java.awt.Color(242, 242, 242));
+        loginField.setToolTipText("Informe o login do novo funcionário");
+        loginField.setBorder(javax.swing.BorderFactory.createTitledBorder("Login"));
 
         nameField.setBackground(new java.awt.Color(242, 242, 242));
         nameField.setToolTipText("Informe o nome do novo funcionário");
         nameField.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome"));
 
-        categoryComboBox.setBackground(new java.awt.Color(242, 242, 242));
-        categoryComboBox.setBorder(javax.swing.BorderFactory.createTitledBorder("Categoria"));
+        positionComboBox.setBackground(new java.awt.Color(242, 242, 242));
+        positionComboBox.setBorder(javax.swing.BorderFactory.createTitledBorder("Cargo"));
 
         btnUpdate.setBackground(new java.awt.Color(90, 195, 90));
         btnUpdate.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -79,9 +71,9 @@ public class UpdateProductView extends javax.swing.JFrame {
             }
         });
 
-        quantityField.setBackground(new java.awt.Color(242, 242, 242));
-        quantityField.setToolTipText("Informe o login do novo funcionário");
-        quantityField.setBorder(javax.swing.BorderFactory.createTitledBorder("Quantidade"));
+        passwordField.setBackground(new java.awt.Color(242, 242, 242));
+        passwordField.setToolTipText("Informe a senha do novo funcionário");
+        passwordField.setBorder(javax.swing.BorderFactory.createTitledBorder("Senha"));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -90,12 +82,12 @@ public class UpdateProductView extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(quantityField, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(priceField, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(categoryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loginField, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(positionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(211, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,12 +95,12 @@ public class UpdateProductView extends javax.swing.JFrame {
                 .addGap(55, 55, 55)
                 .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(categoryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(positionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(priceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(quantityField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addComponent(loginField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
                 .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(38, Short.MAX_VALUE))
         );
@@ -153,37 +145,39 @@ public class UpdateProductView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        ProductModel productForUpdate = getProductForUpdate();
-        if (productForUpdate != null) {
-            boolean update = productForUpdate.update();
-            if (update) {
-                this.dispose();
-                new SuccessOnUpdate().setVisible(update);            
-            }
+        if (fieldsNotEmpty()) {
+            EmployeeModel employeeForUpdate = getEmployeeForUpdate();
+            if (employeeForUpdate != null) {
+                boolean update = employeeForUpdate.update();
+                if (update) {
+                    this.dispose();
+                    new SuccessOnUpdate().setVisible(update);
+                }
+            }        
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void setEmployeeDataInFields() {
-        nameField.setText(productForUpdate.getName());
-        categoryComboBox.setSelectedItem(productForUpdate.getCategory());
-        priceField.setText(String.valueOf(productForUpdate.getPrice()));
-        quantityField.setText(String.valueOf(productForUpdate.getQuantity()));
+        nameField.setText(employeeForUpdate.getName());
+        positionComboBox.setSelectedItem(employeeForUpdate.getPosition());
+        loginField.setText(employeeForUpdate.getLogin());
+        passwordField.setText(employeeForUpdate.getPassword());
     }
     
-    private void initCategoryComboBox() {
-        for (ProductCategory position : ProductCategory.values()) {
-            categoryComboBox.addItem(position.getLabel());
+    private void initPositionComboBox() {
+        for (EmployeePosition position : EmployeePosition.values()) {
+            positionComboBox.addItem(position.getLabel());
         }
     }
     
-      private ProductModel getProductForUpdate() {
+    private EmployeeModel getEmployeeForUpdate() {
         if (fieldsNotEmpty()) {
-            return new ProductModel(
-                    productForUpdate.getId(),
-                    nameField.getText(),
-                    (String) categoryComboBox.getSelectedItem(), 
-                    Double.parseDouble(priceField.getText()), 
-                    Integer.parseInt(quantityField.getText())
+            return new EmployeeModel(
+                    employeeForUpdate.getId(),
+                    nameField.getText(), 
+                    (String) positionComboBox.getSelectedItem(), 
+                    loginField.getText(), 
+                    passwordField.getText()
             );
         }
         
@@ -192,14 +186,9 @@ public class UpdateProductView extends javax.swing.JFrame {
     
     private boolean fieldsNotEmpty() {
         return !nameField.getText().trim().isEmpty()
-                && !priceField.getText().trim().isEmpty()
-                && !quantityField.getText().trim().isEmpty();
+                && !loginField.getText().trim().isEmpty()
+                && !passwordField.getText().trim().isEmpty();
     }
-
-    public void setProductForUpdate(ProductModel productForUpdate) {
-        this.productForUpdate = productForUpdate;
-    }
-    
     /**
      * @param args the command line arguments
      */
@@ -217,32 +206,33 @@ public class UpdateProductView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UpdateProductView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateEmployeeView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UpdateProductView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateEmployeeView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UpdateProductView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateEmployeeView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UpdateProductView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateEmployeeView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UpdateProductView().setVisible(true);
+                new UpdateEmployeeView().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnUpdate;
-    private javax.swing.JComboBox<String> categoryComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField loginField;
     private javax.swing.JTextField nameField;
-    private javax.swing.JTextField priceField;
-    private javax.swing.JTextField quantityField;
+    private javax.swing.JPasswordField passwordField;
+    private javax.swing.JComboBox<String> positionComboBox;
     // End of variables declaration//GEN-END:variables
 }

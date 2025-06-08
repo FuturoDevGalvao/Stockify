@@ -97,7 +97,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="708" max="32767" attributes="0"/>
+                  <EmptySpace pref="739" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -117,7 +117,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Registrar Entrada"/>
+            <Property name="text" type="java.lang.String" value="Registrar Sa&#xed;da"/>
           </Properties>
         </Component>
       </SubComponents>

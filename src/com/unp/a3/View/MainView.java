@@ -42,14 +42,14 @@ public class MainView extends javax.swing.JFrame {
         btnManagerProducts = new javax.swing.JButton();
         productLabel = new javax.swing.JLabel();
         btnSignupProduct = new javax.swing.JButton();
-        generalLabel = new javax.swing.JLabel();
         btnRelatory = new javax.swing.JButton();
         btnRegisterInput = new javax.swing.JButton();
-        btnRegisterOutput = new javax.swing.JButton();
         employeeLabel = new javax.swing.JLabel();
         btnSignupEmployee = new javax.swing.JButton();
         btnManagerEmployee = new javax.swing.JButton();
         logoLabel = new javax.swing.JLabel();
+        btnRegisterOutput = new javax.swing.JButton();
+        generalLabel = new javax.swing.JLabel();
         MainPainel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -100,12 +100,6 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
-        generalLabel.setBackground(new java.awt.Color(255, 255, 255));
-        generalLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        generalLabel.setForeground(new java.awt.Color(25, 25, 25));
-        generalLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8686724_ic_fluent_apps_add_in_icon.png"))); // NOI18N
-        generalLabel.setText("Recursos");
-
         btnRelatory.setForeground(new java.awt.Color(25, 25, 25));
         btnRelatory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8687746_ic_fluent_print_regular_icon.png"))); // NOI18N
         btnRelatory.setText("Relatório");
@@ -133,18 +127,9 @@ public class MainView extends javax.swing.JFrame {
                 btnRegisterInputMouseExited(evt);
             }
         });
-
-        btnRegisterOutput.setForeground(new java.awt.Color(43, 47, 52));
-        btnRegisterOutput.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8686648_ic_fluent_arrow_circle_down_icon_-_Copia-removebg-preview.png"))); // NOI18N
-        btnRegisterOutput.setText("Registrar saída ");
-        btnRegisterOutput.setBorder(null);
-        btnRegisterOutput.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnRegisterOutput.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnRegisterOutputMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnRegisterOutputMouseExited(evt);
+        btnRegisterInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterInputActionPerformed(evt);
             }
         });
 
@@ -193,6 +178,31 @@ public class MainView extends javax.swing.JFrame {
 
         logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/1.jpg"))); // NOI18N
 
+        btnRegisterOutput.setForeground(new java.awt.Color(43, 47, 52));
+        btnRegisterOutput.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8686648_ic_fluent_arrow_circle_down_icon_-_Copia-removebg-preview.png"))); // NOI18N
+        btnRegisterOutput.setText("Registrar entrada");
+        btnRegisterOutput.setBorder(null);
+        btnRegisterOutput.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnRegisterOutput.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRegisterOutputMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRegisterOutputMouseExited(evt);
+            }
+        });
+        btnRegisterOutput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterOutputActionPerformed(evt);
+            }
+        });
+
+        generalLabel.setBackground(new java.awt.Color(255, 255, 255));
+        generalLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        generalLabel.setForeground(new java.awt.Color(25, 25, 25));
+        generalLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8686724_ic_fluent_apps_add_in_icon.png"))); // NOI18N
+        generalLabel.setText("Recursos");
+
         javax.swing.GroupLayout sideBarMenuPainelLayout = new javax.swing.GroupLayout(sideBarMenuPainel);
         sideBarMenuPainel.setLayout(sideBarMenuPainelLayout);
         sideBarMenuPainelLayout.setHorizontalGroup(
@@ -201,30 +211,37 @@ public class MainView extends javax.swing.JFrame {
                 .addComponent(logoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 22, Short.MAX_VALUE))
             .addGroup(sideBarMenuPainelLayout.createSequentialGroup()
-                .addGroup(sideBarMenuPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(sideBarMenuPainelLayout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addGroup(sideBarMenuPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnRelatory, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnManagerEmployee)
-                            .addComponent(btnSignupEmployee)
-                            .addComponent(btnRegisterOutput)
-                            .addComponent(btnRegisterInput)
-                            .addComponent(btnManagerProducts)
-                            .addComponent(btnSignupProduct)))
-                    .addGroup(sideBarMenuPainelLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(sideBarMenuPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(generalLabel)
-                            .addComponent(employeeLabel)
-                            .addComponent(productLabel))))
+                .addGroup(sideBarMenuPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(sideBarMenuPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(sideBarMenuPainelLayout.createSequentialGroup()
+                            .addGap(54, 54, 54)
+                            .addComponent(btnRegisterInput))
+                        .addGroup(sideBarMenuPainelLayout.createSequentialGroup()
+                            .addGap(54, 54, 54)
+                            .addComponent(btnSignupProduct))
+                        .addGroup(sideBarMenuPainelLayout.createSequentialGroup()
+                            .addGap(54, 54, 54)
+                            .addComponent(btnManagerProducts))
+                        .addGroup(sideBarMenuPainelLayout.createSequentialGroup()
+                            .addGap(29, 29, 29)
+                            .addGroup(sideBarMenuPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(employeeLabel)
+                                .addComponent(productLabel)
+                                .addComponent(generalLabel))))
+                    .addGroup(sideBarMenuPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnSignupEmployee)
+                        .addComponent(btnRegisterOutput)
+                        .addGroup(sideBarMenuPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnRelatory)
+                            .addComponent(btnManagerEmployee))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         sideBarMenuPainelLayout.setVerticalGroup(
             sideBarMenuPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sideBarMenuPainelLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(logoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(29, 29, 29)
                 .addComponent(productLabel)
                 .addGap(18, 18, 18)
                 .addComponent(btnSignupProduct)
@@ -232,7 +249,7 @@ public class MainView extends javax.swing.JFrame {
                 .addComponent(btnManagerProducts)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRegisterInput)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(5, 5, 5)
                 .addComponent(btnRegisterOutput)
                 .addGap(18, 18, 18)
                 .addComponent(employeeLabel)
@@ -242,7 +259,7 @@ public class MainView extends javax.swing.JFrame {
                 .addComponent(btnManagerEmployee)
                 .addGap(18, 18, 18)
                 .addComponent(generalLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnRelatory)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -331,16 +348,6 @@ public class MainView extends javax.swing.JFrame {
         btnRegisterInput.setForeground(AppColorsSchema.SECONDARY_FOREGROUND);
     }//GEN-LAST:event_btnRegisterInputMouseExited
 
-    private void btnRegisterOutputMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterOutputMouseEntered
-        // TODO add your handling code here:
-        btnRegisterOutput.setForeground(AppColorsSchema.THEME);
-    }//GEN-LAST:event_btnRegisterOutputMouseEntered
-
-    private void btnRegisterOutputMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterOutputMouseExited
-        // TODO add your handling code here:
-        btnRegisterOutput.setForeground(AppColorsSchema.SECONDARY_FOREGROUND);
-    }//GEN-LAST:event_btnRegisterOutputMouseExited
-
     private void btnSignupEmployeeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignupEmployeeMouseEntered
         // TODO add your handling code here:
         btnSignupEmployee.setForeground(AppColorsSchema.THEME);
@@ -370,6 +377,26 @@ public class MainView extends javax.swing.JFrame {
         // TODO add your handling code here:
         btnRelatory.setForeground(AppColorsSchema.SECONDARY_FOREGROUND);
     }//GEN-LAST:event_btnRelatoryMouseExited
+
+    private void btnRegisterInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterInputActionPerformed
+        // TODO add your handling code here:
+        viewManager.transition(ViewKey.REGISTER_INPUT_PRODUCT);
+    }//GEN-LAST:event_btnRegisterInputActionPerformed
+
+    private void btnRegisterOutputMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterOutputMouseEntered
+        // TODO add your handling code here:
+        btnRegisterOutput.setForeground(AppColorsSchema.THEME);
+    }//GEN-LAST:event_btnRegisterOutputMouseEntered
+
+    private void btnRegisterOutputMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterOutputMouseExited
+        // TODO add your handling code here:
+        btnRegisterOutput.setForeground(AppColorsSchema.SECONDARY_FOREGROUND);
+    }//GEN-LAST:event_btnRegisterOutputMouseExited
+
+    private void btnRegisterOutputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterOutputActionPerformed
+        // TODO add your handling code here:
+        viewManager.transition(ViewKey.REGISTER_OUTPUT_PRODUCT);
+    }//GEN-LAST:event_btnRegisterOutputActionPerformed
     
     private void setColorApp() {
         this.setBackground(AppColorsSchema.BACKGROUND);

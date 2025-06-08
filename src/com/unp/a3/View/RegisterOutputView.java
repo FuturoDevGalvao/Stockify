@@ -11,12 +11,12 @@ import com.unp.a3.Model.ProductCategory;
  *
  * @author 12825139786
  */
-public class RegisterInputView extends javax.swing.JPanel {
+public class RegisterOutputView extends javax.swing.JPanel {
 
     /**
      * Creates new form RegisterInputView
      */
-    public RegisterInputView() {
+    public RegisterOutputView() {
         initComponents();
         initCategoryComboBox();
         initActionComboBox();
@@ -58,7 +58,7 @@ public class RegisterInputView extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(965, 620));
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
-        jLabel1.setText("Registrar Entrada");
+        jLabel1.setText("Registrar Saída");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -67,7 +67,7 @@ public class RegisterInputView extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabel1)
-                .addContainerGap(708, Short.MAX_VALUE))
+                .addContainerGap(739, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

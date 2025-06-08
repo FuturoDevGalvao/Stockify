@@ -76,7 +76,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Verdana" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Atualizar Produto"/>
+            <Property name="text" type="java.lang.String" value="Atualizar Funcion&#xe1;rio"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel2">
@@ -96,13 +96,13 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="39" pref="39" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="quantityField" min="-2" pref="400" max="-2" attributes="0"/>
-                          <Component id="priceField" alignment="0" min="-2" pref="400" max="-2" attributes="0"/>
-                          <Component id="categoryComboBox" alignment="0" min="-2" pref="199" max="-2" attributes="0"/>
+                          <Component id="loginField" min="-2" pref="400" max="-2" attributes="0"/>
+                          <Component id="positionComboBox" alignment="0" min="-2" pref="199" max="-2" attributes="0"/>
+                          <Component id="passwordField" min="-2" pref="400" max="-2" attributes="0"/>
                           <Component id="nameField" alignment="0" min="-2" pref="400" max="-2" attributes="0"/>
                           <Component id="btnUpdate" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="113" max="32767" attributes="0"/>
+                      <EmptySpace pref="211" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -112,12 +112,12 @@
                       <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                       <Component id="nameField" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="categoryComboBox" min="-2" max="-2" attributes="0"/>
+                      <Component id="positionComboBox" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="priceField" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="quantityField" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="loginField" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                      <Component id="passwordField" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Component id="btnUpdate" min="-2" pref="41" max="-2" attributes="0"/>
                       <EmptySpace pref="38" max="32767" attributes="0"/>
                   </Group>
@@ -125,7 +125,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JTextField" name="priceField">
+            <Component class="javax.swing.JTextField" name="loginField">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f2" green="f2" red="f2" type="rgb"/>
@@ -133,7 +133,7 @@
                 <Property name="toolTipText" type="java.lang.String" value="Informe o login do novo funcion&#xe1;rio"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Pre&#xe7;o"/>
+                    <TitledBorder title="Login"/>
                   </Border>
                 </Property>
               </Properties>
@@ -151,14 +151,14 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="categoryComboBox">
+            <Component class="javax.swing.JComboBox" name="positionComboBox">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f2" green="f2" red="f2" type="rgb"/>
                 </Property>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Categoria"/>
+                    <TitledBorder title="Cargo"/>
                   </Border>
                 </Property>
               </Properties>
@@ -183,15 +183,15 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="quantityField">
+            <Component class="javax.swing.JPasswordField" name="passwordField">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f2" green="f2" red="f2" type="rgb"/>
                 </Property>
-                <Property name="toolTipText" type="java.lang.String" value="Informe o login do novo funcion&#xe1;rio"/>
+                <Property name="toolTipText" type="java.lang.String" value="Informe a senha do novo funcion&#xe1;rio"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Quantidade"/>
+                    <TitledBorder title="Senha"/>
                   </Border>
                 </Property>
               </Properties>
