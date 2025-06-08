@@ -8,16 +8,26 @@ package com.unp.a3.View;
  *
  * @author Usuario
  */
-public class SuccessOnSignup extends javax.swing.JFrame {
+public class SuccessModalView extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(SuccessOnSignup.class.getName());
-
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(SuccessModalView.class.getName());
+    private String action;
+    
+    {
+        initComponents();
+        setLocationRelativeTo(null);
+    }
+    
     /**
      * Creates new form SucessOnSignup
      */
-    public SuccessOnSignup() {
-        initComponents();
-        setLocationRelativeTo(null);
+    public SuccessModalView() {
+
+    }
+    
+    public SuccessModalView(String action) {
+        this.action = action;
+        this.messageLabel.setText(action + " com sucesso!");
     }
 
     /**
@@ -30,7 +40,7 @@ public class SuccessOnSignup extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        messageLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
@@ -40,8 +50,8 @@ public class SuccessOnSignup extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jLabel2.setText("Cadastrado com sucesso!");
+        messageLabel.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        messageLabel.setText("Cadastrado com sucesso!");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/282474_ok_done_check_icon.png"))); // NOI18N
 
@@ -76,7 +86,7 @@ public class SuccessOnSignup extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jLabel2)))
+                        .addComponent(messageLabel)))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -85,7 +95,7 @@ public class SuccessOnSignup extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(messageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37))
@@ -135,13 +145,13 @@ public class SuccessOnSignup extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new SuccessOnSignup().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new SuccessModalView().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel messageLabel;
     // End of variables declaration//GEN-END:variables
 }
