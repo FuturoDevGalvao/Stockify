@@ -1,12 +1,12 @@
 package com.unp.a3.Model.enums;
 
-public enum ProductAction {
+public enum ReportType {
     INPUT("Saída"),
     OUTPUT("Entrada");
     
    private String label;
    
-   private ProductAction(String label) {
+   private ReportType(String label) {
        this.label = label;
    }
    

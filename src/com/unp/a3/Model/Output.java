@@ -78,7 +78,8 @@ public class Output extends Model implements Persistable {
             connection.closeConnection();
         }
 
-        return false;    }
+        return false;    
+    }
 
     @Override
     public boolean update() {
