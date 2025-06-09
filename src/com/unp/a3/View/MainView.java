@@ -25,7 +25,7 @@ public class MainView extends javax.swing.JFrame {
         initComponents();
         MainPainel.setLayout(new BorderLayout());
         viewManager = ViewManager.getInstance(this);
-        viewManager.transition(ViewKey.HOME);
+        viewManager.transition(ViewKey.MANAGER_PRODUCTS);
     }
 
     /**

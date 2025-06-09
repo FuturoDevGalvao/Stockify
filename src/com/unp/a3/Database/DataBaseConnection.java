@@ -41,9 +41,9 @@ public class DataBaseConnection {
     public void openConnection() throws SQLException {
         try {
             Class.forName(DRIVER);
-            System.out.println(URL);
+            //System.out.println(URL);
             this.connection = DriverManager.getConnection(URL, USER, PASS);
-            System.out.println("Conexão com %s aberta".formatted(URL));
+            //System.out.println("Conexão com %s aberta".formatted(URL));
         } catch (ClassNotFoundException ex) {
             System.out.println("Driver %s (necessário para a conexão) não localizado.".formatted(URL));
         }
