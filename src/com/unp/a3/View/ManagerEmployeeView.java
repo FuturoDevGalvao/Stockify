@@ -1,12 +1,12 @@
 package com.unp.a3.View;
 
-import com.unp.a3.Model.EmployeeModel;
+import com.unp.a3.Model.Employee;
 import com.unp.a3.Model.Model;
 import javax.swing.table.DefaultTableModel;
 
 public class ManagerEmployeeView extends javax.swing.JPanel {
 
-    private EmployeeModel employeeForManagement;
+    private Employee employeeForManagement;
     private DefaultTableModel defaultTableModel;
 
     public ManagerEmployeeView() {
@@ -162,7 +162,7 @@ public class ManagerEmployeeView extends javax.swing.JPanel {
                  rowData[i] = employeesTable.getValueAt(rowSelected, i);
              }
              
-             employeeForManagement = new EmployeeModel(
+             employeeForManagement = new Employee(
                      (int) rowData[0],
                      (String) rowData[1],
                      (String) rowData[2],
@@ -195,9 +195,9 @@ public class ManagerEmployeeView extends javax.swing.JPanel {
     private void setTableData() {
         defaultTableModel.setNumRows(0);
 
-        EmployeeModel employeeModel = new EmployeeModel();
+        Employee employeeModel = new Employee();
         for (Model m : employeeModel.getAll()) {
-            EmployeeModel p = (EmployeeModel) m;
+            Employee p = (Employee) m;
             defaultTableModel.addRow(new Object[]{
                 p.getId(),
                 p.getName(),

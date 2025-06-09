@@ -1,12 +1,12 @@
 package com.unp.a3.View;
 
-import com.unp.a3.Model.EmployeeModel;
-import com.unp.a3.Model.EmployeePosition;
-import com.unp.a3.Model.ProductModel;
+import com.unp.a3.Model.Employee;
+import com.unp.a3.Model.enums.EmployeePosition;
+import com.unp.a3.Model.Product;
 
 public class UpdateEmployeeView extends javax.swing.JFrame {
 
-    private EmployeeModel employeeForUpdate;
+    private Employee employeeForUpdate;
     
     {
         initComponents();
@@ -15,7 +15,7 @@ public class UpdateEmployeeView extends javax.swing.JFrame {
     /**
      * Creates new form UpdateProductView
      */
-    public UpdateEmployeeView(EmployeeModel employeeForUpdate) {
+    public UpdateEmployeeView(Employee employeeForUpdate) {
         this.employeeForUpdate = employeeForUpdate;
         setEmployeeDataInFields();
         initPositionComboBox();
@@ -146,12 +146,12 @@ public class UpdateEmployeeView extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         if (fieldsNotEmpty()) {
-            EmployeeModel employeeForUpdate = getEmployeeForUpdate();
+            Employee employeeForUpdate = getEmployeeForUpdate();
             if (employeeForUpdate != null) {
                 boolean update = employeeForUpdate.update();
                 if (update) {
                     this.dispose();
-                    new SuccessOnUpdate().setVisible(update);
+                    new SuccessModalView("Atualizado").setVisible(update);
                 }
             }        
         }
@@ -170,9 +170,9 @@ public class UpdateEmployeeView extends javax.swing.JFrame {
         }
     }
     
-    private EmployeeModel getEmployeeForUpdate() {
+    private Employee getEmployeeForUpdate() {
         if (fieldsNotEmpty()) {
-            return new EmployeeModel(
+            return new Employee(
                     employeeForUpdate.getId(),
                     nameField.getText(), 
                     (String) positionComboBox.getSelectedItem(), 

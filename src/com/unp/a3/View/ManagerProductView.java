@@ -5,8 +5,8 @@
 package com.unp.a3.View;
 
 import com.unp.a3.Model.Model;
-import com.unp.a3.Model.ProductCategory;
-import com.unp.a3.Model.ProductModel;
+import com.unp.a3.Model.enums.ProductCategory;
+import com.unp.a3.Model.Product;
 import com.unp.a3.Routing.ViewManager;
 import javax.swing.table.DefaultTableModel;
 
@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ManagerProductView extends javax.swing.JPanel {
 
-    private ProductModel productForManagement;
+    private Product productForManagement;
     private DefaultTableModel defaultTableModel;
     /**
      * Creates new form ManagerView
@@ -179,7 +179,7 @@ public class ManagerProductView extends javax.swing.JPanel {
                  rowData[i] = productsTable.getValueAt(rowSelected, i);
              }
              
-             productForManagement = new ProductModel(
+             productForManagement = new Product(
                      (int)rowData[0],
                      (String) rowData[1],
                      (String) rowData[2],
@@ -212,9 +212,9 @@ public class ManagerProductView extends javax.swing.JPanel {
     private void setTableData() {
         defaultTableModel.setNumRows(0);
         
-        ProductModel productModel = new ProductModel();
+        Product productModel = new Product();
         for (Model m : productModel.getAll()) {
-            ProductModel p = (ProductModel) m;
+            Product p = (Product) m;
             defaultTableModel.addRow(new Object[]{
                 p.getId(),
                 p.getName(), 

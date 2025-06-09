@@ -4,9 +4,9 @@
  */
 package com.unp.a3.View;
 
-import com.unp.a3.Model.EmployeeModel;
-import com.unp.a3.Model.ProductCategory;
-import com.unp.a3.Model.ProductModel;
+import com.unp.a3.Model.Employee;
+import com.unp.a3.Model.enums.ProductCategory;
+import com.unp.a3.Model.Product;
 
 /**
  *
@@ -133,12 +133,12 @@ public class SignupProductView extends javax.swing.JPanel {
 
     private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
         // TODO add your handling code here:
-        ProductModel newProductForSignup = getNewProductForSignup();
+        Product newProductForSignup = getNewProductForSignup();
         if (newProductForSignup != null) {
             boolean save = newProductForSignup.save();
             if (save) {
                 clearFields();
-                new SuccessOnSignup().setVisible(save);
+                new SuccessModalView("Cadastrado").setVisible(save);
             }
         }
     }//GEN-LAST:event_btnSignupActionPerformed
@@ -149,9 +149,9 @@ public class SignupProductView extends javax.swing.JPanel {
         }
     }
     
-    private ProductModel getNewProductForSignup() {
+    private Product getNewProductForSignup() {
         if (fieldsNotEmpty()) {
-            return new ProductModel(
+            return new Product(
                     nameField.getText(),
                     (String) categoryComboBox.getSelectedItem(), 
                     Double.parseDouble(priceField.getText()), 

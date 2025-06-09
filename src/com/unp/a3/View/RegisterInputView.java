@@ -4,8 +4,16 @@
  */
 package com.unp.a3.View;
 
-import com.unp.a3.Model.ProductAction;
-import com.unp.a3.Model.ProductCategory;
+import com.unp.a3.Controller.InputController;
+import com.unp.a3.Controller.ProductController;
+import com.unp.a3.Model.Input;
+import com.unp.a3.Model.Model;
+import com.unp.a3.Model.enums.ReportType;
+import com.unp.a3.Model.enums.ProductCategory;
+import com.unp.a3.Model.Product;
+import java.util.List;
+import java.util.stream.Collectors;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -13,18 +21,20 @@ import com.unp.a3.Model.ProductCategory;
  */
 public class RegisterInputView extends javax.swing.JPanel {
 
+    private DefaultTableModel defaultSearchTableModel;
+    private DefaultTableModel defaultInputsTableModel;
+    private Product productForManagement;
     /**
      * Creates new form RegisterInputView
      */
     public RegisterInputView() {
         initComponents();
+        defaultSearchTableModel = (DefaultTableModel) searchTable.getModel();
+        defaultInputsTableModel = (DefaultTableModel) inputsTable.getModel();
         initCategoryComboBox();
-        initActionComboBox();
-        infoProductLabel.setText("<html>" +
-    "<b>Nome:</b> " + "Geladeira" + "<br>" +
-    "<b>Preço:</b> R$ " + "2559.90" + "<br>" +
-    "<b>Descrição:</b> " + "A bicha gela demais" +
-                "</html>");
+        addActionListenerCategoryComboBoox();
+        setSearchTableData("");
+        setInputTableData();
     }
 
     /**
@@ -39,21 +49,22 @@ public class RegisterInputView extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        inputsTable = new javax.swing.JTable();
+        searchField = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
         categoryComboBox = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         btnRegister = new javax.swing.JButton();
-        jSpinner1 = new javax.swing.JSpinner();
+        quantitySpinner = new javax.swing.JSpinner();
         jPanel3 = new javax.swing.JPanel();
         infoProductLabel = new javax.swing.JLabel();
-        actionComboBox = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
+        supplierField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        searchTable = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
+        btnRefresh = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(965, 620));
 
@@ -77,24 +88,29 @@ public class RegisterInputView extends javax.swing.JPanel {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        inputsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "ID_Produto", "Quantidade", "Data_Entrada", "Fornecedor"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+            };
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8687727_ic_fluent_search_regular_icon.png"))); // NOI18N
-        jButton1.setText("Pesquisar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(inputsTable);
+
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8687727_ic_fluent_search_regular_icon.png"))); // NOI18N
+        btnSearch.setText("Pesquisar");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSearchActionPerformed(evt);
             }
         });
 
@@ -110,11 +126,10 @@ public class RegisterInputView extends javax.swing.JPanel {
             }
         });
 
-        jSpinner1.setBorder(null);
+        quantitySpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        quantitySpinner.setBorder(null);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-
-        infoProductLabel.setText("jLabel2");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -133,11 +148,9 @@ public class RegisterInputView extends javax.swing.JPanel {
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
-        actionComboBox.setBorder(null);
-
         jLabel3.setText("Quantidade");
 
-        jLabel4.setText("Ação");
+        jLabel4.setText("Fornecedor");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -154,15 +167,15 @@ public class RegisterInputView extends javax.swing.JPanel {
                             .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(quantitySpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(6, 6, 6)
                                         .addComponent(jLabel3)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
-                                    .addComponent(actionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(supplierField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(153, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,36 +183,59 @@ public class RegisterInputView extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(2, 2, 2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(actionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(supplierField)
+                    .addComponent(quantitySpinner, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        searchTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Nome", "Categoria", "Preço", "Quantidade"
             }
-        ));
-        jScrollPane2.setViewportView(jTable2);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        searchTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchTableMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(searchTable);
 
         jLabel2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel2.setText("Todas as entradas de produtos");
+
+        btnRefresh.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/unp/a3/View/Images/8686758_fluent_arrow_counterclockwise_regular_icon.png"))); // NOI18N
+        btnRefresh.setText("Atualizar");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -208,80 +244,235 @@ public class RegisterInputView extends javax.swing.JPanel {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnRefresh))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
+                        .addComponent(btnSearch)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(categoryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(14, 14, 14))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(474, 474, 474)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(12, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(categoryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(btnRefresh))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(categoryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel2)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(15, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(111, 111, 111)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(271, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        String searchTerm = searchField.getText();
+        if (!searchTerm.isEmpty()) {
+            setSearchTableData(searchTerm);
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-
+        ProductController productController = new ProductController();
+        InputController inputController = new InputController();
+        boolean productUpdated = false, inputCreated = false;
+        
+        int quantity = (int) quantitySpinner.getValue();
+        productForManagement.setQuantity(productForManagement.getQuantity() + quantity);
+        productUpdated = productForManagement.update();
+        
+        String supplier = supplierField.getText().trim();
+        if (!supplier.isEmpty()) {
+            Input inputModel = new Input(quantity, supplier, productForManagement);
+            inputCreated = inputModel.save();
+        }
+        
+        if (productUpdated && inputCreated) {
+            clearFields();
+            new SuccessModalView("Registada").setVisible(productUpdated);
+        }
     }//GEN-LAST:event_btnRegisterActionPerformed
 
+    private void searchTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchTableMouseClicked
+         int rowSelected = searchTable.rowAtPoint(evt.getPoint());
+         int totalColums = searchTable.getColumnCount();
+         Object[] rowData = new Object[totalColums];
+         
+         if (rowSelected != -1) {
+             for (int i = 0; i < totalColums; i++) {
+                 rowData[i] = searchTable.getValueAt(rowSelected, i);
+             }
+               // Revisar depois, posso passar diretamenre para o métodos
+               productForManagement = new Product(
+                     (int)rowData[0],
+                     (String) rowData[1],
+                     (String) rowData[2],
+                     (double) rowData[3], 
+                     (int) rowData[4]
+             );
+               
+               setOverviewProduct();
+         }
+    }//GEN-LAST:event_searchTableMouseClicked
+
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        // TODO add your handling code here:
+        setInputTableData();
+    }//GEN-LAST:event_btnRefreshActionPerformed
+  
+    private void setOverviewProduct() {
+        infoProductLabel.setText(
+                String.format(
+                        "<html>" +
+                            "<b>Nome:</b> %s <br>" +
+                            "<b>Categoria:</b> %s <br>" +
+                            "<b>Preço:</b> R$ %.2f <br>" +
+                            "<b>Quantidade atual:</b> %d <br>" +
+                        "</html>", 
+                        productForManagement.getName(),
+                        productForManagement.getCategory(),
+                        productForManagement.getPrice(),
+                        productForManagement.getQuantity()
+                )
+        );
+    }
+    
+    private void setSearchTableData(String searchTerm) {
+        defaultSearchTableModel.setNumRows(0);
+        Product productModel = new Product();
+
+        if (!searchTerm.isEmpty()) {
+            List<Product> filteredProducts = productModel.getAll()
+                    .stream()
+                    .map(p -> (Product) p)
+                    .filter(pm -> pm.getName().contains(searchTerm))
+                    .collect(Collectors.toList());
+
+            if (filteredProducts.isEmpty()) {
+                setSearchTableData("");
+                return;
+            }
+            
+            filteredProducts.stream()
+                    .map(p -> (Product) p)
+                    .forEach(pm -> {
+                        defaultSearchTableModel.addRow(new Object[]{
+                            pm.getId(),
+                            pm.getName(),
+                            pm.getCategory(),
+                            pm.getPrice(),
+                            pm.getQuantity()
+                        });
+                    });
+            return;
+        }
+        
+        productModel.getAll()
+                .stream()
+                .forEach(p -> {
+                      Product pm = (Product) p;
+                      defaultSearchTableModel.addRow(
+                              new Object[]{
+                                  pm.getId(),
+                                  pm.getName(),
+                                  pm.getCategory(),
+                                  pm.getPrice(),
+                                  pm.getQuantity()
+                              }
+                      );
+                  });
+    }
+    
+    private void setInputTableData() {
+        defaultInputsTableModel.setNumRows(0);
+        Input inputModel = new Input();
+        
+        inputModel.getAll()
+                .stream()
+                .map(i -> (Input) i)
+                .forEach(i -> {
+                      defaultInputsTableModel.addRow(
+                              new Object[]{
+                                  i.getId(),
+                                  i.getProductModel().getId(),
+                                  i.getQuantity(),
+                                  i.getInputDate().toString(),
+                                  i.getSupplier()
+                              }
+                      );
+                  });
+    }
+    
     private void initCategoryComboBox() {
         for (ProductCategory category : ProductCategory.values()) {
             categoryComboBox.addItem(category.getLabel());
         }
     }
     
-    private void initActionComboBox() {
-        for (ProductAction action : ProductAction.values()) {
-            actionComboBox.addItem(action.getLabel());
-        }
+     private void clearFields() {
+        infoProductLabel.setText("");
+        quantitySpinner.setValue(0);
+        supplierField.setText("");
+     }
+    
+    private void addActionListenerCategoryComboBoox() {
+        categoryComboBox.addActionListener(e -> {
+            String selected = (String) categoryComboBox.getSelectedItem();
+            System.out.println("Mudei o valor da combo box para %s".formatted(selected));            
+            Product productModel = new Product();
+            List<Product> filteredProducts = productModel.getAll()
+                    .stream()
+                    .map(p -> (Product) p)
+                    .filter(p -> p.getCategory().equals(selected))
+                    .toList();
+            
+            if (!filteredProducts.isEmpty()) {
+                defaultSearchTableModel.setRowCount(0);
+                
+                filteredProducts.stream()
+                    .map(p -> (Product) p)
+                    .forEach(pm -> {
+                        defaultSearchTableModel.addRow(new Object[]{
+                            pm.getId(),
+                            pm.getName(),
+                            pm.getCategory(),
+                            pm.getPrice(),
+                            pm.getQuantity()
+                        });
+                    });
+                return;
+            }
+       
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> actionComboBox;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnRegister;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JComboBox<String> categoryComboBox;
     private javax.swing.JLabel infoProductLabel;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTable inputsTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -291,9 +482,9 @@ public class RegisterInputView extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JSpinner quantitySpinner;
+    private javax.swing.JTextField searchField;
+    private javax.swing.JTable searchTable;
+    private javax.swing.JTextField supplierField;
     // End of variables declaration//GEN-END:variables
 }

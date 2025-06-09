@@ -4,9 +4,9 @@
  */
 package com.unp.a3.View;
 
-import com.unp.a3.Model.EmployeeModel;
-import com.unp.a3.Model.EmployeePosition;
-import com.unp.a3.Model.ProductCategory;
+import com.unp.a3.Model.Employee;
+import com.unp.a3.Model.enums.EmployeePosition;
+import com.unp.a3.Model.enums.ProductCategory;
 
 /**
  *
@@ -136,12 +136,12 @@ public class SignupEmployeeView extends javax.swing.JPanel {
 
     private void btnSignupEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupEmployeeActionPerformed
         // TODO add your handling code here:
-        EmployeeModel newEmployeeForSignup = getNewEmployeeForSignup();
+        Employee newEmployeeForSignup = getNewEmployeeForSignup();
         if (newEmployeeForSignup != null) {
             boolean save = newEmployeeForSignup.save();
             if (save) {
                 clearFields();
-                new SuccessOnSignup().setVisible(save);
+                new SuccessModalView("Cadastrado").setVisible(save);
             }
         }
     }//GEN-LAST:event_btnSignupEmployeeActionPerformed
@@ -152,9 +152,9 @@ public class SignupEmployeeView extends javax.swing.JPanel {
         }
     }
     
-    private EmployeeModel getNewEmployeeForSignup() {
+    private Employee getNewEmployeeForSignup() {
         if (fieldsNotEmpty()) {
-            return new EmployeeModel(
+            return new Employee(
                     nameField.getText(), 
                     (String) positionComboBox.getSelectedItem(), 
                     loginField.getText(), 

@@ -4,8 +4,8 @@
  */
 package com.unp.a3.View;
 
-import com.unp.a3.Model.ProductCategory;
-import com.unp.a3.Model.ProductModel;
+import com.unp.a3.Model.enums.ProductCategory;
+import com.unp.a3.Model.Product;
 
 /**
  *
@@ -13,7 +13,7 @@ import com.unp.a3.Model.ProductModel;
  */
 public class UpdateProductView extends javax.swing.JFrame {
 
-    private ProductModel productForUpdate;
+    private Product productForUpdate;
     
     {
         initComponents();
@@ -23,7 +23,7 @@ public class UpdateProductView extends javax.swing.JFrame {
     /**
      * Creates new form UpdateProductView
      */
-    public UpdateProductView(ProductModel productForUpdate) {
+    public UpdateProductView(Product productForUpdate) {
         this.productForUpdate = productForUpdate;
         setEmployeeDataInFields();
         initCategoryComboBox();
@@ -153,12 +153,12 @@ public class UpdateProductView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        ProductModel productForUpdate = getProductForUpdate();
+        Product productForUpdate = getProductForUpdate();
         if (productForUpdate != null) {
             boolean update = productForUpdate.update();
             if (update) {
                 this.dispose();
-                new SuccessOnUpdate().setVisible(update);            
+                new SuccessModalView("Atualizado").setVisible(update);            
             }
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
@@ -176,9 +176,9 @@ public class UpdateProductView extends javax.swing.JFrame {
         }
     }
     
-      private ProductModel getProductForUpdate() {
+      private Product getProductForUpdate() {
         if (fieldsNotEmpty()) {
-            return new ProductModel(
+            return new Product(
                     productForUpdate.getId(),
                     nameField.getText(),
                     (String) categoryComboBox.getSelectedItem(), 
@@ -196,7 +196,7 @@ public class UpdateProductView extends javax.swing.JFrame {
                 && !quantityField.getText().trim().isEmpty();
     }
 
-    public void setProductForUpdate(ProductModel productForUpdate) {
+    public void setProductForUpdate(Product productForUpdate) {
         this.productForUpdate = productForUpdate;
     }
     

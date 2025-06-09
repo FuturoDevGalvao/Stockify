@@ -4,16 +4,16 @@
  */
 package com.unp.a3.View;
 
-import com.unp.a3.Model.EmployeeModel;
+import com.unp.a3.Model.Employee;
 import com.unp.a3.Model.Model;
-import com.unp.a3.Model.ProductModel;
+import com.unp.a3.Model.Product;
 
 /**
  *
  * @author Usuario
  */
 public class ConfirmDeleteView extends javax.swing.JFrame {
-    
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(SuccessModalView.class.getName());
     private Model entityForDelete;
 
     {
@@ -114,16 +114,16 @@ public class ConfirmDeleteView extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         if (entityForDelete != null) {
-            if (entityForDelete instanceof ProductModel) {
-                ((ProductModel) entityForDelete).delete();
+            if (entityForDelete instanceof Product) {
+                ((Product) entityForDelete).delete();
             }
             
-            if (entityForDelete instanceof EmployeeModel) {
-                ((EmployeeModel) entityForDelete).delete();
+            if (entityForDelete instanceof Employee) {
+                ((Employee) entityForDelete).delete();
             }
             
             this.dispose();
-            new SuccessOnDelete().setVisible(true);
+            new SuccessModalView("Excluído").setVisible(true);
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
